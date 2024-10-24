@@ -1,5 +1,7 @@
 package com.codulgi.chatserver.service;
 
+
+import com.codulgi.chatserver.dto.MemberRequestDto;
 import com.codulgi.chatserver.dto.MemberResponseDto;
 import com.codulgi.chatserver.entity.Member;
 import com.codulgi.chatserver.repository.MemberRepository;
@@ -7,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service
@@ -15,6 +16,12 @@ import java.util.Optional;
 public class MemberService {
 
     private final MemberRepository memberRepository;
+
+    /* 회원가입 */ 
+    public Member registerMember(MemberRequestDto memberRequestDto) {
+        Member member = new Member(memberRequestDto); // DTO를 이용해 Member 객체 생성
+        return memberRepository.save(member); // 데이터베이스에 저장
+    }
 
     /* 로그인 */
     public ResponseEntity<?> login(String email, String password){
@@ -34,4 +41,5 @@ public class MemberService {
 
         return ResponseEntity.status(HttpStatus.OK).body("정상적으로 로그인되었습니다.");
     }
+
 }
