@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 public class MemberResponseDto {
+
     @Data
     public static class SaveMember {
         private Integer id;
@@ -22,6 +23,18 @@ public class MemberResponseDto {
             this.birthdate = member.getBirthdate();
             this.createdAt = member.getCreatedAt();
         }
+    }
 
+    @Data
+    public static class loginMember {
+        private Integer id;
+        private String email;
+        private String name;
+
+        public loginMember(Member member) {
+            this.id = member.getId();
+            this.email = member.getEmail();
+            this.name = member.getName();
+        }
     }
 }
