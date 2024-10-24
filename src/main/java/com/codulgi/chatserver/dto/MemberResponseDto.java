@@ -23,6 +23,7 @@ public class MemberResponseDto {
             this.birthdate = member.getBirthdate();
             this.createdAt = member.getCreatedAt();
         }
+
     }
 
     @Data
@@ -36,5 +37,6 @@ public class MemberResponseDto {
             this.email = member.getEmail();
             this.name = member.getName();
         }
+
     }
 }
