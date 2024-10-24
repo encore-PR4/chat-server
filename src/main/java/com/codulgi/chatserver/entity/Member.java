@@ -4,6 +4,7 @@ import com.codulgi.chatserver.dto.MemberRequestDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -26,7 +27,7 @@ public class Member {
 
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
-    private Date birthdate;
+    private LocalDate birthdate;
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -41,6 +42,7 @@ public class Member {
         this.name = memberRequest.getName();
         this.email = memberRequest.getEmail();
         this.password = memberRequest.getPassword();
+        this.birthdate = memberRequest.getBirthdate();
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now(); // 기존에 있는 정보에 추가
     }

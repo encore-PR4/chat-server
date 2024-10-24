@@ -2,7 +2,7 @@ package com.codulgi.chatserver.dto;
 
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 public class MemberRequestDto {
@@ -10,6 +10,6 @@ public class MemberRequestDto {
     private String email;
     private String password;
     private String name;
-    private Date birthdate;
+    private LocalDate birthdate;
 
 }

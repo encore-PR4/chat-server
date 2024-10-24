@@ -3,8 +3,8 @@ package com.codulgi.chatserver.dto;
 import com.codulgi.chatserver.entity.Member;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class MemberResponseDto {
 
@@ -13,7 +13,7 @@ public class MemberResponseDto {
         private Integer id;
         private String email;
         private String name;
-        private Date birthdate;
+        private LocalDate birthdate;
         private LocalDateTime createdAt;
 
         public SaveMember(Member member) {
