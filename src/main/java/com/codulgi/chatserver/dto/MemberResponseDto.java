@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class MemberResponseDto {
     @Data
-    public static class SaveMember{
+    public static class SaveMember {
         private Integer id;
         private String email;
         private String name;
@@ -22,4 +22,6 @@ public class MemberResponseDto {
             this.birthdate = member.getBirthdate();
             this.createdAt = member.getCreatedAt();
         }
+
+    }
 }
