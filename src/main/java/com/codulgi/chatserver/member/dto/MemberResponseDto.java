@@ -1,6 +1,6 @@
-package com.codulgi.chatserver.dto;
+package com.codulgi.chatserver.member.dto;
 
-import com.codulgi.chatserver.entity.Member;
+import com.codulgi.chatserver.member.entity.Member;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -36,6 +36,21 @@ public class MemberResponseDto {
             this.id = member.getId();
             this.email = member.getEmail();
             this.name = member.getName();
+        }
+    }
+
+    @Data
+    public static class chatUser {
+        private Integer id;
+        private String email;
+        private String name;
+        private byte[] profileImage;
+
+        public chatUser(Member member) {
+            this.id = member.getId();
+            this.email = member.getEmail();
+            this.name = member.getName();
+            this.profileImage = member.getProfileImage();
         }
 
     }

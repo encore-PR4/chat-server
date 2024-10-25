@@ -1,4 +1,4 @@
-package com.codulgi.chatserver.dto;
+package com.codulgi.chatserver.member.dto;
 
 import lombok.Data;
 

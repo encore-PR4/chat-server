@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <title>코둘기 통신</title>
+</head>
+<body>
+
+<div class="main-nav">
+
+</div>
+<div class="main-container">
+
+    <img th:src="@{/image/favicon.png}" class="main-favicon" alt="logo"/>
+
+    <div class="main-title">LOGIN
+    </div>
+    <label class="login-input-label">
+        <input type="text" id="login-email" name="email" placeholder="id" class="login-input" required>
+        <input type="password" id="login-password" name="password" placeholder="password" class="login-input" required>
+        <button type="button" class="login-btn" id="loginButton">로그인</button>
+
+        <button type="button" class="register-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">회원가입</button>
+    </label>
+
+</div>
+
+<!-- 회원가입 모달 -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <!-- 폼 시작 -->
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">회원가입</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- 이메일 -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">이메일</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <!-- 비밀번호 -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">비밀번호</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <!-- 이름 -->
+                <div class="mb-3">
+                    <label for="name" class="form-label">이름</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <!-- 생년월일 -->
+                <div class="mb-3">
+                    <label for="birthdate" class="form-label">생년월일</label>
+                    <input type="date" class="form-control" id="birthdate" name="birthdate" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                <button type="button" class="btn btn-primary" id="submitForm">회원가입</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast 메시지 -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 0">
+    <div id="signupToast" class="toast align-items-center border-0" role="alert" aria-live="assertive"
+         aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                <!-- 이곳에 동적으로 메시지가 표시됩니다 -->
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/index.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+</html>
