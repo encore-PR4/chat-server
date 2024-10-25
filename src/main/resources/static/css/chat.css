@@ -16,24 +16,22 @@ html, body {
 }
 
 .chat-container {
-    min-width: 100%;
+    width: 100%;
     min-height: 100vh;
     background: linear-gradient(60deg, rgb(16, 16, 23), rgba(118, 138, 255, 0.8));
-    display: flex;
+    display: flex !important;
     flex-direction: row;
 }
 
 .chat-nav {
-    min-width: 35vh !important;
-    max-width: 35vh !important;
+    width: 30% !important;
+    max-width: 30% !important;
     min-height: 100vh;
     padding: 15px 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
-
 
 .chat-nav-logo {
     display: flex;
@@ -57,36 +55,81 @@ html, body {
     font-size: 5vh;
 }
 
+.user-info-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-info-img{
+    cursor: pointer;
+    background-color: white;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 99px;
+}
+
+.custom-tooltip .tooltip-inner {
+    background-color: #8853b2; /* 배경색 */
+    color: #fff; /* 글자색 */
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.user-info-name{
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+.chat-room-container{
+    width: 100%;
+}
 .chat-room {
     padding: 10px 25px;
     width: 100%;
     min-height: 100%;
-    display: flex !important;
     flex-direction: column !important;
     background-color: white;
     border-top-left-radius: 40px;
     border-bottom-left-radius: 40px;
 }
 
+.visible-chat-room {
+    display: flex !important;
+}
+
 .create-chat-btn {
     margin-top: 20px;
-    background-color: rgba(255, 255, 255, 0);
+    background: white;
     width: 30vh;
     height: 50px;
     font-size: 32px;
-    color: white;
+    /*color: white;*/
     border-radius: 5px;
     border: 1px solid white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .create-chat-btn:hover {
-    background-color: rgba(255, 255, 255, 1);
-    color: rgb(74, 108, 180);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    background: linear-gradient(60deg, rgb(255, 56, 156), rgb(179, 56, 255), rgba(118, 138, 255, 0.8));
+    color: white;
+    border: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.bi-plus-circle{
+    font-size: 20px;
+    font-weight: 700;
+    /*color: ;*/
 }
 
 .chat-card-container {
-    margin-top: 40px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     width: 30vh;
@@ -130,6 +173,8 @@ html, body {
     align-items: center;
     position: relative;
     bottom: 0;
+    white-space: nowrap;
+    overflow: hidden;
 
 }
 

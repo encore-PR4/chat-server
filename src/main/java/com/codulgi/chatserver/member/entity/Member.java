@@ -49,7 +49,7 @@ public class Member {
     // 프로필 이미지 저장 (바이너리)
     @Setter
     @Lob
-    @Column(name = "profile_image")
+    @Column(name = "profile_image", columnDefinition = "LONGBLOB")
     private byte[] profileImage;
 
     /* 회원 생성 할때 쓸 것 */

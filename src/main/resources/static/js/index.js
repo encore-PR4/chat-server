@@ -61,12 +61,17 @@ document.getElementById('loginButton').addEventListener('click', function () {
 
 // 회원가입 이벤트 리스너
 document.getElementById('submitForm').addEventListener('click', function () {
-    const formData = {
-        email: document.getElementById('email').value,
-        password: document.getElementById('password').value,
-        name: document.getElementById('name').value,
-        birthdate: document.getElementById('birthdate').value
-    };
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const name = document.getElementById('name').value;
+    const birthdate = document.getElementById('birthdate').value;
+
+    if (!email || !password || !name || !birthdate) {
+        showToast('모든 필드를 입력해주세요.', false);
+        return;
+    }
+
+    const formData = { email, password, name, birthdate };
 
     sendRequest('/api/v1/member/join', formData,
         function (data) {

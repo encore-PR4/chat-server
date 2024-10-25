@@ -13,31 +13,53 @@
 </head>
 <body>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    });
+</script>
+<script th:src="@{/js/chatProfileUpdate.js}"></script>
 <div class="chat-container">
     <div class="chat-nav">
         <div class="chat-nav-logo">
             <i class="bi bi-chat-left-text chat-icon" size={32}></i>
             <h1 class="chat-icon-title">CoDulGi</h1>
         </div>
-        <button class="create-chat-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">채팅방 만들기</button>
+        <div class="user-info-card">
+            <img th:src="${loggedInUser.profileImageUrl}" class="user-info-img" alt="프로필 이미지"
+                 data-bs-toggle="tooltip" data-bs-placement="top"
+                 data-bs-custom-class="custom-tooltip"
+                 data-bs-title="변경을 원하시면 Click" id="profileImage"/>
+
+            <input type="file" id="profileImageInput" accept="image/*" style="display: none;" />
+            <p class="user-info-name">반값습니다. 이정훈님</p>
+        </div>
+        <button class="create-chat-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i
+                class="bi bi-plus-circle"></i></button>
         <div class="chat-card-container">
         </div>
     </div>
 
-    <div class="chat-room" id="chat-room" style="display: none;">
-        <div class="chat-room-nav">
-            <div class="chat-room-title"></div>
-            <!-- 채팅방에 참여된 사용자 조회 및 초대 버튼 -->
-            <i class="bi bi-people-fill" id="member-list" data-bs-toggle="modal" data-bs-target="#userListModal"></i>
-        </div>
+    <div class="chat-room-container">
+        <div class="chat-room" id="chat-room" style="display: none">
+            <div class="chat-room-nav">
+                <div class="chat-room-title"></div>
+                <!-- 채팅방에 참여된 사용자 조회 및 초대 버튼 -->
+                <i class="bi bi-people-fill" id="member-list" data-bs-toggle="modal"
+                   data-bs-target="#userListModal"></i>
+            </div>
 
-        <hr/>
-        <div class="chat-contents">
-            <!-- 채팅 메시지가 여기에 추가될 예정 -->
-        </div>
-        <div class="message-container">
-            <input type="text" class="chat-message-input" placeholder="메시지를 입력하세요">
-            <i id="sendMessageBtn" class="bi bi-box-arrow-in-right"></i>
+            <hr/>
+            <div class="chat-contents">
+                <!-- 채팅 메시지가 여기에 추가될 예정 -->
+            </div>
+            <div class="message-container">
+                <input type="text" class="chat-message-input" placeholder="메시지를 입력하세요">
+                <i id="sendMessageBtn" class="bi bi-box-arrow-in-right"></i>
+            </div>
         </div>
     </div>
 </div>

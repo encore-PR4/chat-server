@@ -33,8 +33,7 @@ public class MemberController {
             @RequestBody MemberRequestDto memberRequestDto,
             HttpSession session) {
         ResponseEntity<?> login = memberService.login(memberRequestDto.getEmail(), memberRequestDto.getPassword(), session);
-        log.info("what?");
-        log.info(session.getAttribute("loggedInUser").toString());
+
         return login;
     }
 
