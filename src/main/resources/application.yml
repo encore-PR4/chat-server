@@ -23,7 +23,6 @@ spring:
     suffix: .html
     mode: HTML
     cache: true
-
   devtools:
     restart:
       enabled: false
