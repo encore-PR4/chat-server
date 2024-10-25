@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  server:
+    build: .
+    image: ukidd12/codulki:0.0.1
+    container_name: codulki
+    ports:
+      - "7777:8080"
+    depends_on:
+      - database
+
+  database:
+    image: mariadb:latest
+    container_name: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: codulki
+      MYSQL_USER: codulki
+      MYSQL_PASSWORD: codul123
+    ports:
+      - "3306:3306"
+    volumes:
+      - /Users/jeong/Data/db:/var/lib/mysql
