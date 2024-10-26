@@ -9,6 +9,8 @@ services:
       - "7777:8080"
     depends_on:
       - database
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
 
   database:
     image: mariadb:latest

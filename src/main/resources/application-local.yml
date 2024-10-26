@@ -28,3 +28,6 @@ spring:
       enabled: false
     livereload:
       enabled: true
+
+kafka:
+  bootstrap: localhost:9092
