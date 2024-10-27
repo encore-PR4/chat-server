@@ -19,7 +19,7 @@ public class WebController {
     public String index(HttpSession session) {
         Object loggedInUser = session.getAttribute("loggedInUser");
         if (loggedInUser != null) {
-            return "redirect:/chat";
+            return "redirect:/cms";
         } else {
             return "login";
         }
