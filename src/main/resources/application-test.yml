@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: chat-server
+
+  profiles:
+    active: test
+
+  datasource:
+    # 데이터베이스 연결 설정 없이 진행
+    # 또는 임베디드 데이터베이스 사용 예시
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+
+  thymeleaf:
+    prefix: classpath:templates/
+    check-template-location: true
+    suffix: .html
+    mode: HTML
+    cache: true
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
+
+kafka:
+  bootstrap: localhost:9092
