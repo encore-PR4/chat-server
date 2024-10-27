@@ -15,7 +15,7 @@ html {
     flex-direction: column;
     min-width: fit-content;
     justify-content: center;
-    background: linear-gradient(60deg, rgb(16, 16, 23), rgba(118, 138, 255, 0.8));
+    background: white;
     align-items: center;
 }
 
@@ -43,48 +43,56 @@ html {
 
 .login-input {
     width: 50vh;
-    height: 4.5vh;
-    border-radius: 5px;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 10px;
+    /*background-color: #e2e2ff;*/
+    border: 1px solid #e2e2ff;
+    /*border: none;*/
+    color: black;
     outline: none;
+    transition: 0.5s border ease-in-out;
 }
+
+.login-input:focus {
+    border: 2px solid rgba(118, 138, 255, 0.8);
+}
+
 
 .login-btn {
     cursor: pointer;
     width: 50vh;
     padding: 15px 25px;
-    background-color: rgba(118, 138, 255, 0.8);
+    background-color: #e2e2ff;
     color: white;
-    border-radius: 15px;
-    height: 4.5vh;
+    border-radius: 10px;
+    height: 50px;
     border: none;
+    transition: 0.5s background-color ease-in-out;
 }
 
 .login-btn:hover {
-    background: linear-gradient(to right, rgba(51, 87, 253, 1), #da45da);
+    background-color: rgba(118, 138, 255, 0.8);
     font-weight: 700;
 }
 
 .register-btn{
-    margin-top: 20px;
+    margin-top: 10px;
     cursor: pointer;
     min-width: fit-content;
-    padding: 15px 25px;
-    background-color: rgba(255, 255, 255, 0);
-    color: white;
-    border-radius: 15px;
-    border: 2px solid white;
+    height: 50px;
+    padding: 0 25px;
+    background-color: white;
+    color: #e2e2ff;
+    border-radius: 10px;
+    border: 2px solid #e2e2ff;
     font-weight: 400;
-    transition: 0.5s background-color;
+    transition: 0.5s background-color ease-in-out;
 }
 
 .register-btn:hover{
-    background-color: white;
-    color: black;
+    background-color: #e2e2ff;
+    color: white;
     font-weight: 700;
-
 }
 

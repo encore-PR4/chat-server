@@ -32,13 +32,22 @@ public class ChatRoomController {
     @PostMapping("/create")
     public ResponseEntity<?> createChatRoom(@RequestBody ChatRoomRequest request) {
         try {
+
+            log.info("request: {}", request.toString());
+            // 채팅방 생성 결과를 담은 ResponseEntity를 반환
             ResponseEntity<?> response = chatRoomService.createRoom(request);
-            messagingTemplate.convertAndSend("/topic/chat-room", response.getBody());  // 새로 생성된 채팅방 정보를 보냄
+            // 웹소켓으로 채팅방 생성 정보를 전달
+            messagingTemplate.convertAndSend("/topic/chat-room", response.getBody());
             return response;
         } catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+            log.error("채팅방 생성 중 오류 발생: {}", e.getMessage());
+            // 에러 응답을 JSON으로 반환
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Collections.singletonMap("error", "채팅방 생성 중 오류 발생: " + e.getMessage()));
         }
     }
+
 
     /* 모든 채팅방 조회 */
     @GetMapping

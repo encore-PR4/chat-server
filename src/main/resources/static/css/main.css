@@ -1,0 +1,489 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.main-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.chat-room-nav {
+    width: 18rem;
+    height: 100%;
+    border-right: 2px solid rgb(234, 235, 255);
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+.chat-nav-logo {
+    width: 100%;
+    height: 100px;
+    border-bottom: 2px solid rgb(234, 235, 255);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.chat-nav-logo-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.chat-nav-logo-text {
+    font-family: "Asap", sans-serif;
+    font-weight: 600;
+    margin: 0 !important;
+    font-size: 32px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.chat-room-list-container {
+    width: 100%;
+    height: 100%;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.chat-room-list-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    margin-bottom: 20px;
+}
+
+.chat-room-list-cnt {
+    margin: 0;
+    font-family: "Asap", sans-serif;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.bi-plus-box {
+    cursor: pointer;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 99px;
+}
+
+.bi-plus-box:hover {
+    background-color: #eeeeff;
+}
+
+.bi-plus {
+    font-size: 18px;
+}
+
+
+.chat-room-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.chat-room-card {
+    cursor: pointer;
+    border-radius: 10px;
+    width: 100%;
+    height: fit-content;
+    padding: 10px 15px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.chat-room-card:hover {
+    background-color: #f8f8f8;
+}
+
+.chat-room-card:active {
+    background-color: #eeeeff;
+}
+
+.chat-room-card-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.chat-room-image {
+    min-width: 50px;
+    height: 50px;
+    background-color: #1c1c1c;
+    border-radius: 99px;
+}
+
+.chat-room-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+
+.chat-active {
+    background-color: #eeeeff;
+}
+
+.chat-room-info > p {
+    margin: 0;
+}
+
+.chat-room-name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 18px;
+    color: #000000;
+}
+
+.chat-room-last {
+    font-size: 16px;
+    color: #969696;
+}
+
+.my-profile-container {
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    bottom: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    padding: 10px;
+}
+
+.my-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.my-img {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 99px;
+    background-color: #1c1c1c;
+}
+
+.my-name {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.logout-box {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #eeeeff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout-box:hover {
+    background-color: #fcc1c1;
+    color: white;
+    transition: 0.5s background-color ease-in-out, 0.5s color ease-in-out;
+}
+
+.bi-box-arrow-right {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.chat-room {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.chat-nav {
+    width: 100%;
+    height: 100px;
+    /*border-bottom: 2px solid rgb(234, 235, 255);*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center !important;
+    padding: 0 20px;
+}
+
+.chat-title {
+    font-family: "Asap", sans-serif;
+    font-weight: 600;
+    margin: 0 !important;
+    font-size: 32px;
+    color: black;
+}
+
+.chat-nav-items {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.chat-nav-item {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #eeeeff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: 0.5s background-color ease-in-out;
+}
+
+.chat-nav-item:hover {
+    background-color: #e5e5fc;
+
+}
+
+.bi-people-fill {
+    font-size: 18px;
+}
+
+.chat {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    margin-bottom: 80px;
+}
+
+.chat-message-box {
+    display: flex;
+    width: 45%;
+
+
+}
+
+.member-profile-box {
+    min-width: 80px;
+    min-height: 100%;
+    display: flex;
+    padding: 25px 15px;
+    align-items: end;
+    overflow: hidden;
+}
+
+.member-profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    background-color: #1c1c1c;
+}
+
+.chat-messages {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    padding: 10px;
+}
+
+
+.member-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.chat-message-c {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+}
+
+.chat-message {
+    width: fit-content;
+    background-color: #eeeeff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.chat-send-time {
+    font-size: 12px;
+    color: #d5d5d5;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    white-space: nowrap;
+}
+
+.chat-send-time-me {
+    display: none;
+}
+
+.chat-message-box-me {
+    display: flex;
+    /*width: 45%;*/
+    flex-direction: row;
+    margin-left: auto;
+
+}
+
+.chat-messages-me {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    padding: 10px;
+    align-items: end;
+}
+
+.member-name-me {
+    text-align: end;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.chat-message-me {
+    width: fit-content;
+    background-color: #e2e2ff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.msg-input-container {
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 0;
+}
+
+.msg-input {
+    min-width: 80%;
+    padding-left: 20px;
+    height: 50px;
+    border-radius: 99px;
+    border: none;
+    background-color: #e8e8e8;
+    font-size: 18px;
+}
+
+#userList {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.user-card {
+    cursor: pointer;
+    width: 8vh;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+
+.user-card::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera에서 스크롤바 숨기기 */
+}
+
+.user-card img {
+    width: 5vh;
+    height: 5vh;
+    object-fit: fill;
+    border-radius: 99px;
+    background-color: #1c1c1c;
+}
+
+.user-card p {
+    font-size: 16px;
+}
+
+.invite-user-list {
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin-right: 5px;
+    height: fit-content;
+    max-height: 5vh;
+}
+
+
+.invite-user-card {
+    cursor: pointer;
+    list-style: none;
+    width: fit-content;
+    padding: 5px 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #e2e2ff;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.invite-user-img {
+    width: 5vh;
+    height: 5vh;
+    background-color: white;
+    border-radius: 99px;
+}
+
+.invite-user-info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5px;
+
+}
+
+.invite-user-email {
+    padding: 0;
+    margin: 0;
+    height: fit-content;
+    font-size: 18px;
+    color: white;
+}
+
+.invite-user-name {
+    padding: 0;
+    margin: 0;
+    height: fit-content;
+    font-size: 16px;
+    color: white;
+}

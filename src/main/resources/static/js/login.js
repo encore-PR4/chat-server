@@ -51,7 +51,7 @@ document.getElementById('loginButton').addEventListener('click', function () {
     sendRequest('/api/v1/member/login', loginData,
         function (data) {
             showToast('로그인 성공!', true); // 성공 Toast
-            window.location.href = '/chat'; // 로그인 성공 시 리디렉션
+            window.location.href = '/cms'; // 로그인 성공 시 리디렉션
         },
         function (error) {
             console.error('로그인 실패:', error.message);

@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -27,19 +28,24 @@ public class ChatRoomService {
 
     /* 채팅방 생성 */
     public ResponseEntity<?> createRoom(ChatRoomRequest requestDto) {
+        // 소유자 조회
         Member owner = memberRepository.findById(requestDto.getOwnerId())
                 .orElseThrow(() -> new RuntimeException("소유자를 찾을 수 없습니다."));
 
-        List<Member> participants = memberRepository.findAllById(requestDto.getParticipantIds());
+        // 참여자 조회, 빈 배열일 경우 빈 리스트로 초기화
+        List<Member> participants = requestDto.getParticipantIds().isEmpty() ?
+                new ArrayList<>() : memberRepository.findAllById(requestDto.getParticipantIds());
 
+        // 소유자를 participants 리스트에 추가
         participants.add(owner);
 
+        // 채팅방 생성 및 저장
         ChatRoom chatRoom = new ChatRoom(requestDto.getName(), participants, owner);
-
         ChatRoom newChatRoom = chatRoomRepository.save(chatRoom);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(newChatRoom);
     }
+
 
     /* 모든 채팅방 조회 */
     public ResponseEntity<?> getAllRooms() {

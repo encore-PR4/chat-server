@@ -11,6 +11,7 @@ public class MessageResponse {
     private String content;
     private Integer senderId;
     private String senderName;
+    private byte[] senderAvatar;
     private LocalDateTime timestamp;
 
     public MessageResponse(Message message) {
@@ -18,6 +19,8 @@ public class MessageResponse {
         this.content = message.getContent();
         this.senderId = message.getSender().getId();
         this.senderName = message.getSender().getName();
+        this.senderAvatar = message.getSender().getProfileImage();
         this.timestamp = message.getTimestamp();
+
     }
 }

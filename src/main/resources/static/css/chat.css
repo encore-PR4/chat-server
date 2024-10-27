@@ -326,7 +326,7 @@ html, body {
 }
 
 
-.invite-find-user {
+.invite-user-card {
     cursor: pointer;
     list-style: none;
     width: fit-content;
@@ -339,7 +339,7 @@ html, body {
     border-radius: 10px;
 }
 
-.invite-user-profile {
+.invite-user-img {
     width: 3vh;
     height: 3vh;
     background-color: white;
