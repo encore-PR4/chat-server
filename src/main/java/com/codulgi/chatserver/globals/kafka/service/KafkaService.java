@@ -1,5 +1,6 @@
 package com.codulgi.chatserver.globals.kafka.service;
 
+import com.codulgi.chatserver.chat.dto.MessageResponse;
 import com.codulgi.chatserver.chat.entity.Message;
 import com.codulgi.chatserver.globals.kafka.entity.KafkaMessageDto;
 import com.fasterxml.jackson.core.JsonProcessingException;

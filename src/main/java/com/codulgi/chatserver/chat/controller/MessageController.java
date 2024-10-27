@@ -27,15 +27,16 @@ public class MessageController {
 
     /* 메시지 전송 */
     @PostMapping("/send")
-    public ResponseEntity<Message> sendMessage(@RequestBody MessageRequest messageRequest, HttpServletRequest httpServletRequest) {
-        Message message = messageService.sendMessage(messageRequest, httpServletRequest).getBody();
+    public ResponseEntity<MessageResponse> sendMessage(@RequestBody MessageRequest messageRequest, HttpServletRequest httpServletRequest) {
+        // 서비스 계층에서 MessageResponse DTO로 변환된 메시지를 받음
+        MessageResponse messageDto = messageService.sendMessage(messageRequest, httpServletRequest);
 
-        // 메시지를 DTO로 변환하여 WebSocket으로 전송
-        MessageResponse messageDto = new MessageResponse(message);
+        // WebSocket으로 전송
         messagingTemplate.convertAndSend("/topic/chat-room/" + messageRequest.getChatRoomId(), messageDto);
 
-        return ResponseEntity.ok(message);
+        return ResponseEntity.ok(messageDto);
     }
+
 
     /* 특정 채팅방의 메시지 조회 */
     @GetMapping("/{chatRoomId}")

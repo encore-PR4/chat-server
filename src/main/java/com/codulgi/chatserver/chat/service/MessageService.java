@@ -1,6 +1,7 @@
 package com.codulgi.chatserver.chat.service;
 
 import com.codulgi.chatserver.chat.dto.MessageRequest;
+import com.codulgi.chatserver.chat.dto.MessageResponse;
 import com.codulgi.chatserver.chat.entity.ChatRoom;
 import com.codulgi.chatserver.chat.entity.Message;
 import com.codulgi.chatserver.chat.repository.ChatRoomRepository;
@@ -28,7 +29,7 @@ public class MessageService {
 
     /* 메시지 전송 */
     @Transactional
-    public ResponseEntity<Message> sendMessage(MessageRequest messageRequest, HttpServletRequest httpServletRequest) {
+    public MessageResponse sendMessage(MessageRequest messageRequest, HttpServletRequest httpServletRequest) {
         // 1. 채팅방이 존재하는지 확인
         ChatRoom chatRoom = chatRoomRepository.findById(messageRequest.getChatRoomId())
                 .orElseThrow(() -> new RuntimeException("해당 채팅방을 찾을 수 없습니다."));
@@ -49,9 +50,10 @@ public class MessageService {
             System.err.println("Kafka 전송 실패: " + e.getMessage());
         }
 
-        // 5. 메시지 응답으로 반환
-        return ResponseEntity.status(HttpStatus.OK).body(message);
+        // 5. 메시지를 MessageResponse DTO로 변환하여 반환
+        return new MessageResponse(message);
     }
+
 
     /* 특정 채팅방의 메시지 조회 */
     public List<Message> getMessagesByChatRoom(Integer chatRoomId) {

@@ -1,5 +1,6 @@
 package com.codulgi.chatserver.globals.kafka.entity;
 
+import com.codulgi.chatserver.chat.dto.MessageResponse;
 import com.codulgi.chatserver.chat.entity.Message;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.Data;
@@ -19,8 +20,9 @@ public class KafkaMessageDto {
     private LocalDateTime time;
     private String path;
     private String method;
-    private Object message;
-    private int status; // HttpStatus를 정수 형태로 저장
+    private MessageResponse message;
+    private String request;
+    private int status;
 
     public KafkaMessageDto(Message message, HttpServletRequest request) {
         this.traceId = UUID.randomUUID().toString();
@@ -28,7 +30,7 @@ public class KafkaMessageDto {
         this.time = LocalDateTime.now();
         this.path = request.getRequestURI();
         this.method = request.getMethod();
-        this.message = message.getContent();  // 전송할 메시지
+        this.message = new MessageResponse(message);  // 전송할 메시지
         this.status = HttpStatus.OK.value();  // 상태 코드를 정수로 저장
     }
 }
