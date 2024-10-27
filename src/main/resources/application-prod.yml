@@ -1,18 +1,16 @@
 spring:
   application:
     name: chat-server
-
-  datasource:
-    hikari:
-      connection-timeout: 30000
-      max-lifetime: 1800000
-      maximum-pool-size: 10
-
   datasource:
     url: jdbc:mariadb://database:3306/codulki
     username: codulki
     password: codul123
     driver-class-name: org.mariadb.jdbc.Driver
+
+    hikari:
+      connection-timeout: 30000
+      max-lifetime: 1800000
+      maximum-pool-size: 10
 
   jpa:
     hibernate:
