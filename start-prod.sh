@@ -1,7 +1,7 @@
 #!/bin/bash
 
-SERVER_NAME=codulki
-DOCKER_COMPOSE_FILE=./docker-compose.prod.yml
+SERVER_NAME='codulki'
+DOCKER_COMPOSE_FILE='docker-compose.prod.yml'
 
 # 기존 서버 및 데이터베이스 컨테이너 종료 및 제거
 echo "기존 서버 및 데이터베이스 컨테이너를 종료하고 제거합니다."
