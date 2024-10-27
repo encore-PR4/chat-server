@@ -1,5 +1,6 @@
 package com.codulgi.chatserver.globals.kafka.service;
 
+import com.codulgi.chatserver.chat.dto.MessageRequest;
 import com.codulgi.chatserver.chat.dto.MessageResponse;
 import com.codulgi.chatserver.chat.entity.Message;
 import com.codulgi.chatserver.globals.kafka.entity.KafkaMessageDto;
@@ -25,8 +26,8 @@ public class KafkaService {
     private static final String TOPIC = "message-topic";
     private final KafkaTemplate<String, String> kafkaTemplate;
 
-    public void sendMessageToKafka(Message message, HttpServletRequest request) throws JsonProcessingException {
-        KafkaMessageDto kafkaMessageDto = new KafkaMessageDto(message, request);
+    public void sendMessageToKafka(MessageRequest messageRequest, Message message, HttpServletRequest httpServletRequest) throws JsonProcessingException {
+        KafkaMessageDto kafkaMessageDto = new KafkaMessageDto(messageRequest, message, httpServletRequest);
 
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule()); // LocalDateTime 지원

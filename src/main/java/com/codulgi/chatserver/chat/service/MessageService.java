@@ -44,7 +44,7 @@ public class MessageService {
 
         // 4. Kafka로 메시지 전송
         try {
-            kafkaService.sendMessageToKafka(message, httpServletRequest); // 수정된 메서드
+            kafkaService.sendMessageToKafka(messageRequest, message, httpServletRequest); // 수정된 메서드
         } catch (Exception e) {
             // Kafka 전송 실패 시 예외 처리
             System.err.println("Kafka 전송 실패: " + e.getMessage());
