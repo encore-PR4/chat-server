@@ -13,13 +13,13 @@ ls
 echo "캐시 없이 도커 이미지를 빌드합니다."
 docker-compose -f $DOCKER_COMPOSE_FILE build --no-cache
 
-ls
+ls ./build
 
 # 도커 컴포즈로 새로운 서버 및 데이터베이스 컨테이너 실행
 echo "새로운 도커 컴포즈 컨테이너를 시작합니다."
 docker-compose -f $DOCKER_COMPOSE_FILE up -d
 
-ls
+ls ./build./libs
 
 # 서버 컨테이너의 실행 상태 확인
 echo "서버 컨테이너의 상태를 검사합니다."
