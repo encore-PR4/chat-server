@@ -34,4 +34,4 @@ spring:
       enabled: false
 
 kafka:
-  bootstrap: localhost:9092
+  bootstrap: 172.31.0.168:9092
